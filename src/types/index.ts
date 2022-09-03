@@ -27,6 +27,8 @@ export enum EStatusLoading {
 }
 
 export interface IAuthData {
-  login: string;
   isLogin: boolean;
+  info: {
+    email: string;
+  };
 }

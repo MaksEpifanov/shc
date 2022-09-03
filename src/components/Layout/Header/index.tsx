@@ -1,19 +1,24 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LogoutSvg } from "assets/images";
+
+import { logout } from "store/features/auth/auth.slice";
+import { useAppDispatch } from "store/store.hooks";
+
 import { StHeader, StLogo, StLogoutBtn } from "./Header.styles";
 
 /** Header
  * Компонент отвечает за выход пользователя
- * удаляет из localStorage информацию
+ * dispatch logout
  * перенаправляет на страницу логина
  */
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem("authData");
-    navigate("/login", { replace: true });
+    dispatch(logout());
+    // navigate("/login", { replace: true });
   };
 
   return (

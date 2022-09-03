@@ -2,7 +2,8 @@
 import { useNavigate } from "react-router-dom";
 import { useForm, FieldValues, FieldErrors } from "react-hook-form";
 
-import type { IAuthData } from "types";
+import { login } from "store/features/auth/auth.slice";
+import { useAppDispatch } from "store/store.hooks";
 
 import {
   StSubmit,
@@ -14,6 +15,8 @@ import {
 
 const LoginValidate = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   const {
     register,
     formState: { errors, isValid },
@@ -23,11 +26,7 @@ const LoginValidate = () => {
   });
 
   const onSubmit = (data: FieldValues) => {
-    const authData: IAuthData = {
-      login: data.login,
-      isLogin: true,
-    };
-    localStorage.setItem("authData", JSON.stringify(authData));
+    dispatch(login(data.login));
     navigate("/");
   };
 

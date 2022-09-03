@@ -5,6 +5,7 @@ import rootSaga from "./root.saga";
 import searchParams from "./features/searchParams/searchParams.slice";
 import favorites from "./features/favorites/favorites.slice";
 import hotels from "./features/hotels/hotels.slice";
+import auth from "./features/auth/auth.slice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -13,6 +14,7 @@ export const store = configureStore({
     searchParams,
     favorites,
     hotels,
+    auth,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({ thunk: false }),
