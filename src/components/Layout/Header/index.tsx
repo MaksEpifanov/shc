@@ -13,12 +13,10 @@ import { StHeader, StLogo, StLogoutBtn } from "./Header.styles";
  */
 
 const Header: React.FC = () => {
-  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
     dispatch(logout());
-    // navigate("/login", { replace: true });
   };
 
   return (
