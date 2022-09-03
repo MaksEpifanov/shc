@@ -3,7 +3,7 @@ import type { IQueryParams, IHotel } from "../types";
 
 const getHotels = async (params: IQueryParams) => {
   const res = await http.get<IHotel[]>("cache.json", {
-    params: { limit: 10, currency: "rub", ...params },
+    params: { limit: 15, currency: "rub", ...params },
   });
   return res.data;
 };

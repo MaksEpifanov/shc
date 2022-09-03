@@ -17,17 +17,9 @@ const Filters = () => {
   const { filter, count } = useAppSelector((state) => state.favorites);
   const dispatch = useAppDispatch();
 
-  const handleFilterRating = () => {
-    if (filter.select !== "rating") {
-      dispatch(setFilterCategory("rating"));
-    } else {
-      dispatch(setFilterDirection());
-    }
-  };
-
-  const handleFilterPrice = () => {
-    if (filter.select !== "price") {
-      dispatch(setFilterCategory("price"));
+  const handleFilter = (type: "rating" | "price") => {
+    if (filter.select !== type) {
+      dispatch(setFilterCategory(type));
     } else {
       dispatch(setFilterDirection());
     }
@@ -40,14 +32,14 @@ const Filters = () => {
         active={filter.select === "rating"}
         disabled={count < 1}
         up={filter.isUpDirection}
-        onClick={() => handleFilterRating()}
+        onClick={() => handleFilter("rating")}
       />
       <Filter
         text="Цена"
         active={filter.select === "price"}
         up={filter.isUpDirection}
         disabled={count < 1}
-        onClick={() => handleFilterPrice()}
+        onClick={() => handleFilter("price")}
       />
     </StFilters>
   );
