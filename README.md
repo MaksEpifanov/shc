@@ -1,6 +1,6 @@
 # Simple Hotel Check - SHC
 
-[Live demo]()
+[Live demo](https://shc-eight.vercel.app)
 
 ## Technologies
 
